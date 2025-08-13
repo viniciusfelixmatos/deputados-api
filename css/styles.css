@@ -1,0 +1,84 @@
+:root {
+    --color-header: #1E1E1E;
+    --unnamed-color-efece2: #EFECE2;
+    --unnamed-color-fc7300: #FC7300;
+    --unnamed-color-090b30: #090B30;
+    --unnamed-color-ffffff: #FFFFFF;
+    --unnamed-color-f2f2f2: #F2F2F2;
+    --unnamed-color-333333: #333333;
+    --unnamed-color-3a74ba: #3A74BA;
+    --unnamed-color-aaaaaa: #AAAAAA;
+    --unnamed-color-2179ce: #2179CE;
+    --unnamed-color-999999: #999999;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* HEADER */
+
+header {
+    position: fixed;
+    height: 4.375rem;
+    background-color: var(--color-header);
+    width: 100%;
+}
+
+.header_box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    color: var(--unnamed-color-efece2);
+    transition: all 0.4s;
+}
+
+.header_box i {
+    transition: all 0.4s;
+    font-size: 1.5rem;
+}
+
+.header_box i:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.header_icons {
+    display: flex;
+    flex-direction: row;
+    gap: 0.9375rem;
+}
+
+.header_icons i {
+    font-size: 1.5rem;
+}
+
+/* INTRO AREA */
+
+.intro {
+    display: flex;
+    align-items: flex-end;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--unnamed-color-090b30);
+    background-image: url(../img/monitor\ da\ bancada\ topo.png);
+}
+
+.intro_box {
+    text-align: center;
+    font-size: 1.125rem;
+    max-width: 31.25rem;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 6.25rem;
+}
+
+.intro_links {
+    font-size: 2.1875rem;
+    gap: 0.625rem;
+}
