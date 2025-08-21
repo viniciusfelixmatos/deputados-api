@@ -16,24 +16,31 @@
 </head>
 <body>
     <header>
-        <section class="container-xl header_box">
-            <div class="header_hamburguer">
-                <i class="bi bi-list"></i>
-            </div>
-            <div>
-                <img src="img/opovo_mais.svg">
-            </div>
-            <div class="header_icons">
-                <i class="bi bi-search"></i>
-                <i class="bi bi-person-fill"></i>
-                <i class="bi bi-bell"></i>
+        <section class="header_area">
+            <div class="container-xxl header_box">
+                <div class="header_hamburguer">
+                    <i class="bi bi-list"></i>
+                </div>
+                <div class="header_img_box">
+                    <img src="img/opovo_mais.svg">
+                </div>
+                <div class="header_icons">
+                    <i class="bi bi-search"></i>
+                    <i class="bi bi-person-fill"></i>
+                    <i class="bi bi-bell"></i>
+                </div>
             </div>
         </section>
     </header>
     <main>
         <section class="intro">
             <div class="container-xxl intro_box">
-                <div>
+                <div class="links_intro">
+                    <a class="link-btn link_one">Início</a>
+                    <a class="link-btn link_two">Interativos</a>
+                    <a class="link-btn link_three">Monitor da Bancada</a>
+                </div>
+                <div class="icons_box_intro">
                     <p>Ferramenta permite que pesquisas sejam agregadas e mostrem intenções de voto mais próximas da realidade.</p>
                     <p class="intro_date">Atualizado às 13:38 | Mai. 06, 2021</p>
                     <div class="intro_links">
@@ -50,10 +57,10 @@
             <div class="deputados-title">
                 <h2>Deputados</h2>
             </div>
-            <div class="deputados-area container-xl">
-                <div class="row g-3" id="deputados-list">
-                    <div class="col-12">
-                        <div class="deputados-card template" id="deputadocard" style="display:none;">
+            <div class="deputados-area container-xxl">
+                <div class="" id="deputados-list">
+                    <div class="">
+                        <div class="deputados-card template" id="deputadocard" data-toggle="modal" data-target="#exampleModal">
                             <img src="img/dicos-bicos.jpg" class="cardimg">
                             <p class="card-name">Beri beri dicos bicos bonbicos</p>
                             <p class="card-party">(PARTIDO)</p>
@@ -62,6 +69,74 @@
                 </div>
             </div>
         </section>
+        <section class="metodologia">
+            <div class="container-xxl metodologia_box">
+                <h3>Metodologia</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quos nobis deleniti optio qui adipisci deserunt illum quo, molestias, iste veniam hic tempore sint quidem sunt vel rerum consequuntur laborum!</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit tenetur dolores eligendi placeat aperiam sunt non tempora, vel illum velit debitis! Id porro sed consectetur dicta repellat necessitatibus fugit? Quo.</p>
+            </div>
+        </section>
+        <section class="expediente">
+            <div class="container-xxl expediente_box">
+                <div class="expediente_title">
+                    <h3>Expediente</h3>
+                </div>
+                <div class="expediente_info">
+                    <div class="info_box">
+                        <p class="title_info">Crédito</p>
+                        <p>Fulano de tal</p>
+                    </div>
+                    <div class="info_box">
+                        <p class="title_info">Crédito</p>
+                        <p>Fulano de tal</p>
+                    </div>
+                    <div class="info_box">
+                        <p class="title_info">Crédito</p>
+                        <p>Fulano de tal</p>
+                    </div>
+                    <div class="info_box">
+                        <p class="title_info">Crédito</p>
+                        <p>Fulano de tal</p>
+                    </div>
+                    <div class="info_box">
+                        <p class="title_info">Crédito</p>
+                        <p>Fulano de tal</p>
+                    </div>
+                    <div class="info_box">
+                        <p class="title_info">Crédito</p>
+                        <p>Fulano de tal</p>
+                    </div>
+                    <div class="info_box">
+                        <p class="title_info">Crédito</p>
+                        <p>Fulano de tal</p>
+                    </div>
+                    <div class="info_box">
+                        <p class="title_info">Crédito</p>
+                        <p>Fulano de tal</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Modal body text goes here.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </main>
 

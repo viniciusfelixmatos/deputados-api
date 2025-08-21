@@ -27,27 +27,23 @@ header {
     width: 100%;
 }
 
-.header_box {
+.header_area {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     height: 100%;
     color: var(--unnamed-color-efece2);
-    transition: all 0.4s;
 }
 
-.header_box i {
-    transition: all 0.4s;
-    font-size: 1.5rem;
-}
-
-.header_box i:hover {
-    cursor: pointer;
-    transform: scale(1.2);
+.header_box {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
 }
 
 .header_icons {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: row;
     gap: 0.9375rem;
 }
@@ -65,6 +61,16 @@ header {
     transform: scale(1.2)
 }
 
+.header_img_box {
+    display: flex;
+    justify-content: center;
+}
+
+.header_img_box img {
+    width:50px;
+    height: 50px;
+}
+
 /* INTRO AREA */
 
 .intro {
@@ -80,14 +86,50 @@ header {
 }
 
 .intro_box {
+    height: 100%;
     text-align: center;
     font-size: 1.125rem;
     max-width: 31.25rem;
     color: #fff;
     font-family: 'Roboto', sans-serif;
     display: flex;
-    justify-content: center;
-    margin-bottom: 6.25rem;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+.links_intro {
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 90px;
+}
+
+.links_intro a {
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.link_one {
+    color: var(--unnamed-color-2179ce);
+}
+
+.link_two {
+    color: var(--unnamed-color-2179ce);
+}
+
+.link_three {
+    color: var(--unnamed-color-999999);
+}
+
+.link-btn::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid red;
 }
 
 .intro_links {
@@ -130,22 +172,25 @@ header {
 
 .deputados-card {
     flex: 0 0 9%;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     text-align: center;
     color: var(--unnamed-color-f2f2f2);
     padding: 0.5rem;
-    border-radius: 10px;
-    min-height: 150px;
+    border-radius: 0.625rem;
+    min-height: 9.375rem;
     box-sizing: border-box;
-    justify-content: center;
+    justify-content: flex-start;
+    max-width: 6.25rem;
+    cursor: pointer;
 }
 
 .deputados-card img {
     width: 80px;
     height: 80px;
     object-fit: cover;
+    object-position: top;
     border-radius: 50%;
     margin-bottom: 0.5rem;
 }
@@ -175,6 +220,74 @@ header {
     display: none;
 }
 
+/* METODOLOGIA */
+
+.metodologia {
+    display: flex;
+    justify-content: center;
+    background-color: var(--unnamed-color-090b30);
+}
+
+.metodologia_box {
+    max-width: 51.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.metodologia_box h3 {
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--unnamed-color-fc7300);
+}
+
+.metodologia_box p {
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    text-align: justify;
+}
+
+/* EXPEDIENTE */
+
+.expediente {
+    padding-bottom: 2rem;
+    background-color: var(--unnamed-color-090b30);
+}
+
+.expediente_box {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 51.25rem;
+    color: #fff;
+}
+
+.expediente_box h3 {
+    font-size: 1.5rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    color: var(--unnamed-color-fc7300);
+
+}
+
+.expediente_info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 280px;
+}
+
+.title_info {
+    font-weight: bold;
+}
+
+.info_box p {
+    margin-bottom: 0;
+    font-size: 20px;
+}
+
 @media (max-width: 768px) {
     .intro {
         display: flex;
@@ -186,5 +299,17 @@ header {
         background-size: auto;
         background-position: center 30%;
         background-repeat: no-repeat;
+    }
+}
+
+@media (max-width: 425px) {
+
+    .intro {
+        background-size: contain;
+        background-position: center 40%;
+    }
+
+    .expediente_info {
+        max-height: none;
     }
 }
