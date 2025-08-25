@@ -308,7 +308,6 @@ header {
     line-height: 30px;
     box-shadow: 0 2px 5px rgba(239, 236, 226, 0.2);
     gap: 4px;
-    padding: 0 4px;
     font-size: 14px;
 }
 
@@ -371,6 +370,7 @@ header {
     background: none;
     font-size: 14px;
     box-shadow: 0 2px 5px rgba(239, 236, 226, 0.2);
+    width: 100%;
 }
 
 .info-item strong {
@@ -379,7 +379,6 @@ header {
     padding: 0 6px;
     border: 1px solid #000;
     border-radius: 0;
-    min-width: 100px;
     display: inline-block;
     height: 100%;
     line-height: 30px;
@@ -398,6 +397,10 @@ header {
     display: flex;
     gap: 20px;
 }
+
+/* BOTÃO DE X */
+
+
 
 @media (max-width: 768px) {
 

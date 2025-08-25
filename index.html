@@ -118,7 +118,7 @@
             </div>
         </section>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content custom-modal">
                     <div class="modal-header border-0">
@@ -129,38 +129,36 @@
                         <div class="modal-layout">
                         <!-- FOTO -->
                         <div class="img_modal">
-                            <img src="img/dicos-bicos.jpg" 
-                                class="deputado_img" 
-                                alt="Deputado">
+                            <img id="modal-foto" src="" class="deputado_img" alt="Deputado">
                         </div>
 
                         <!-- INFORMAÇÕES -->
                         <div class="info_table">
                             <div class="info_area">
-                            <!-- COLUNA 1 -->
-                            <div class="info-col">
-                                <div class="info-item"><strong>Nome:</strong> Luizaine Lins</div>
-                                <div class="info-item"><strong>Partido:</strong> Solidariedade</div>
-                                <div class="info-item"><strong>Frentes:</strong> Bancada da Mulher</div>
-                                <div class="info-double">
-                                    <div class="info-item uf"><strong>UF:</strong><span>CE</span></div>
-                                    <div class="info-item info-gender"><strong>Sexo:</strong><span>Feminino</span></div>
+                                <!-- COLUNA 1 -->
+                                <div class="info-col">
+                                    <div class="info-item"><strong>Nome:</strong> <span id="modal-nome"></span></div>
+                                    <div class="info-item"><strong>Partido:</strong> <span id="modal-partido"></span></div>
+                                    <div class="info-item"><strong>Frentes:</strong> <span id="modal-frentes"></span></div>
+                                    <div class="info-double">
+                                        <div class="info-item uf"><strong>UF:</strong> <span id="modal-uf"></span></div>
+                                        <div class="info-item info-gender"><strong>Sexo:</strong> <span id="modal-sexo"></span></div>
+                                    </div>
+                                    <div class="info-item"><strong>Naturalidade:</strong> <span id="modal-naturalidade"></span></div>
                                 </div>
-                                <div class="info-item"><strong>Naturalidade:</strong> Fortaleza, CE</div>
-                            </div>
 
-                            <!-- COLUNA 2 -->
-                            <div class="info-col">
-                                <div class="info-item"><strong>Nascimento:</strong> 18/11/1968</div>
-                                <div class="info-item"><strong>CPF:</strong> 382.085.633-15</div>
-                                <div class="info-item"><strong>Email:</strong> luiziannelins@camara.leg.br</div>
-                                <div class="info-item"><strong>Escolaridade:</strong> Mestrado Incompleto</div>
-                                <div class="info-item"><strong>Nome Civil:</strong> LUIZIANNE DE OLIVEIRA LINS</div>
-                            </div>
+                                <!-- COLUNA 2 -->
+                                <div class="info-col">
+                                    <div class="info-item"><strong>Nascimento:</strong> <span id="modal-nascimento"></span></div>
+                                    <div class="info-item"><strong>CPF:</strong> <span id="modal-cpf"></span></div>
+                                    <div class="info-item"><strong>Email:</strong> <span id="modal-email"></span></div>
+                                    <div class="info-item"><strong>Escolaridade:</strong> <span id="modal-escolaridade"></span></div>
+                                    <div class="info-item"><strong>Nome Civil:</strong> <span id="modal-nomecivil"></span></div>
+                                </div>
                             </div>
                         </div>
                         </div>
-
+                        </div>
                     </div>
                 </div>
             </div>
