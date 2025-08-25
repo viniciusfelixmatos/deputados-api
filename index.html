@@ -60,7 +60,7 @@
             <div class="deputados-area container-xxl">
                 <div class="" id="deputados-list">
                     <div class="">
-                        <div class="deputados-card template" id="deputadocard" data-toggle="modal" data-target="#exampleModal">
+                        <div class="deputados-card template" id="deputadocard" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <img src="img/dicos-bicos.jpg" class="cardimg">
                             <p class="card-name">Beri beri dicos bicos bonbicos</p>
                             <p class="card-party">(PARTIDO)</p>
@@ -118,25 +118,56 @@
             </div>
         </section>
 
-        <div class="modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content custom-modal">
+                    <div class="modal-header border-0">
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Modal body text goes here.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        
+                        <div class="modal-layout">
+                        <!-- FOTO -->
+                        <div class="img_modal">
+                            <img src="img/dicos-bicos.jpg" 
+                                class="deputado_img" 
+                                alt="Deputado">
+                        </div>
+
+                        <!-- INFORMAÇÕES -->
+                        <div class="info_table">
+                            <div class="info_area">
+                            <!-- COLUNA 1 -->
+                            <div class="info-col">
+                                <div class="info-item"><strong>Nome:</strong> Luizaine Lins</div>
+                                <div class="info-item"><strong>Partido:</strong> Solidariedade</div>
+                                <div class="info-item"><strong>Frentes:</strong> Bancada da Mulher</div>
+                                <div class="info-double">
+                                    <div class="info-item uf"><strong>UF:</strong><span>CE</span></div>
+                                    <div class="info-item info-gender"><strong>Sexo:</strong><span>Feminino</span></div>
+                                </div>
+                                <div class="info-item"><strong>Naturalidade:</strong> Fortaleza, CE</div>
+                            </div>
+
+                            <!-- COLUNA 2 -->
+                            <div class="info-col">
+                                <div class="info-item"><strong>Nascimento:</strong> 18/11/1968</div>
+                                <div class="info-item"><strong>CPF:</strong> 382.085.633-15</div>
+                                <div class="info-item"><strong>Email:</strong> luiziannelins@camara.leg.br</div>
+                                <div class="info-item"><strong>Escolaridade:</strong> Mestrado Incompleto</div>
+                                <div class="info-item"><strong>Nome Civil:</strong> LUIZIANNE DE OLIVEIRA LINS</div>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
+
+
+
 
     </main>
 

@@ -288,7 +288,132 @@ header {
     font-size: 20px;
 }
 
+/* MODAL */
+.modal-dialog {
+    max-width: 1030px;
+    margin: auto;
+}
+
+.info-double {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+.info-double .info-item {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    line-height: 30px;
+    box-shadow: 0 2px 5px rgba(239, 236, 226, 0.2);
+    gap: 4px;
+    padding: 0 4px;
+    font-size: 14px;
+}
+
+.info-double .uf strong {
+    width: 31px;
+    display: inline-block;
+    background: #fff;
+    color: #000;
+    text-align: center;
+    border: 1px solid #000;
+    line-height: 30px;
+}
+
+.custom-modal {
+    width: 1030px;
+    height: 465px;
+    background-color: #0d0a2b;
+    color: #fff;
+    border-radius: 0;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.deputado_img {
+    width: 191px;
+    height: 255px;
+    object-fit: cover;
+    border-radius: 0;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.3);
+}
+
+.info_table {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.info_area {
+    display: flex;
+    max-height: 255px;
+    gap: 20px;
+}
+
+.info-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.info-item {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    background: none;
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(239, 236, 226, 0.2);
+}
+
+.info-item strong {
+    background: #fff;
+    color: #000;
+    padding: 0 6px;
+    border: 1px solid #000;
+    border-radius: 0;
+    min-width: 100px;
+    display: inline-block;
+    height: 100%;
+    line-height: 30px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(239, 236, 226, 0.2);
+}
+
+.info-item span {
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.modal-layout {
+    display: flex;
+    gap: 20px;
+}
+
 @media (max-width: 768px) {
+
+    .img_modal {
+        text-align: center;
+    }
+
+    .custom-modal {
+        height: auto;
+    }
+
+    .modal-layout {
+        flex-direction: column;
+        height: auto;
+    }
+
     .intro {
         display: flex;
         align-items: flex-end;
@@ -301,6 +426,35 @@ header {
         background-repeat: no-repeat;
     }
 }
+
+@media (max-width: 480px) {
+    .img_modal {
+        text-align: center;
+    }
+
+    .custom-modal {
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modal-layout {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .info_area {
+        flex-direction: column;
+        gap: 15px;
+        max-height: none;
+    }
+
+    .info-col {
+        flex: 1 1 100%;
+        gap: 10px;
+    }
+}
+
 
 @media (max-width: 425px) {
 
