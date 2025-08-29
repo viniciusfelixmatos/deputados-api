@@ -15,106 +15,122 @@
     <title>Deputados</title>
 </head>
 <body>
-    <header>
-        <section class="header_area">
-            <div class="container-xxl header_box">
-                <div class="header_hamburguer">
-                    <i class="bi bi-list"></i>
-                </div>
-                <div class="header_img_box">
-                    <img src="img/opovo_mais.svg">
-                </div>
-                <div class="header_icons">
-                    <i class="bi bi-search"></i>
-                    <i class="bi bi-person-fill"></i>
-                    <i class="bi bi-bell"></i>
-                </div>
+    <header class="header">
+        <div class="header__container container-xxl">
+
+            <div class="header__hamburger">
+                <i class="bi bi-list"></i>
             </div>
-        </section>
+
+            <div class="header__logo">
+                <img src="img/opovo_mais.svg" alt="O Povo Mais Logo">
+            </div>
+
+            <div class="header__icons">
+                <i class="header__icon bi bi-search" aria-label="Buscar"></i>
+                <i class="header__icon bi bi-person-fill" aria-label="Perfil"></i>
+                <i class="header__icon bi bi-bell" aria-label="Notificações"></i>
+            </div>
+        </div>
     </header>
+
     <main>
         <section class="intro">
-            <div class="container-xxl intro_box">
-                <div class="links_intro">
-                    <a class="link-btn link_one">Início</a>
-                    <i class="bi bi-chevron-double-right"></i>
-                    <a class="link-btn link_two">Interativos</a>
-                    <i class="bi bi-chevron-double-right"></i>
-                    <a class="link-btn link_three">Monitor da Bancada</a>
+            <div class="intro__container container-xxl">
+                <!-- Breadcrumb Links -->
+                <div class="intro__breadcrumbs">
+                    <a class="intro__breadcrumb-link intro__breadcrumb-link--inicio">Início</a>
+                        <i class="bi bi-chevron-double-right intro__breadcrumb-separator"></i>
+                    <a class="intro__breadcrumb-link intro__breadcrumb-link--interativos">Interativos</a>
+                        <i class="bi bi-chevron-double-right intro__breadcrumb-separator"></i>
+                    <a class="intro__breadcrumb-link intro__breadcrumb-link--monitor">Monitor da Bancada</a>
                 </div>
-                <div class="icons_box_intro">
-                    <p>Ferramenta permite que pesquisas sejam agregadas e mostrem intenções de voto mais próximas da realidade.</p>
-                    <p class="intro_date">Atualizado às 13:38 | Mai. 06, 2021</p>
-                    <div class="intro_links">
-                        <i class="bi bi-facebook"></i>
-                        <i class="bi bi-twitter"></i>
-                        <i class="bi bi-whatsapp"></i>
-                        <i class="bi bi-linkedin"></i>
-                        <i class="bi bi-telegram"></i>
+
+                <!-- Description + Social Links -->
+                <div class="intro__info">
+                    <p class="intro__description">
+                        Ferramenta permite que pesquisas sejam agregadas e mostrem intenções de voto mais próximas da realidade.
+                    </p>
+                    <p class="intro__date">Atualizado às 13:38 | Mai. 06, 2021</p>
+
+                    <div class="intro__social-links">
+                        <img class="intro__social-icon" src="img/facebook_icon.svg" alt="Facebook">
+                        <img class="intro__social-icon" src="img/twitter_icon.svg" alt="Twitter">
+                        <img class="intro__social-icon" src="img/whatsapp_icon.svg" alt="WhatsApp">
+                        <img class="intro__social-icon" src="img/linkedin_icon.svg" alt="LinkedIn">
+                        <img class="intro__social-icon" src="img/telegram_icon.svg" alt="Telegram">
                     </div>
                 </div>
             </div>
         </section>
+
         <section class="deputados">
-            <div class="deputados-title">
-                <h2>Deputados</h2>
+            <div class="deputados__header">
+                <h2 class="deputados__title">Deputados</h2>
             </div>
-            <div class="deputados-area container-xxl">
-                <div class="" id="deputados-list">
-                    <div class="">
-                        <div class="deputados-card template" id="deputadocard" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <img src="img/dicos-bicos.jpg" class="cardimg">
-                            <p class="card-name">Beri beri dicos bicos bonbicos</p>
-                            <p class="card-party">(PARTIDO)</p>
+            <div class="deputados__container container-xxl">
+                <div class="deputados__list" id="deputados-list">
+                    <div class="deputados__item-wrapper">
+                        <div class="deputados__card deputados__card--template" id="deputadocard" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <img src="img/dicos-bicos.jpg" class="deputados__card-img" alt="Deputado">
+                            <p class="deputados__card-name">Beri beri dicos bicos bonbicos</p>
+                            <p class="deputados__card-party">(PARTIDO)</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+
         <section class="metodologia">
-            <div class="container-xxl metodologia_box">
-                <h3>Metodologia</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quos nobis deleniti optio qui adipisci deserunt illum quo, molestias, iste veniam hic tempore sint quidem sunt vel rerum consequuntur laborum!</p>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit tenetur dolores eligendi placeat aperiam sunt non tempora, vel illum velit debitis! Id porro sed consectetur dicta repellat necessitatibus fugit? Quo.</p>
+            <div class="metodologia__container container-xxl">
+                <h3 class="metodologia__title">Metodologia</h3>
+                <p class="metodologia__text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quos nobis deleniti optio qui adipisci deserunt illum quo, molestias, iste veniam hic tempore sint quidem sunt vel rerum consequuntur laborum!
+                </p>
+                <p class="metodologia__text">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit tenetur dolores eligendi placeat aperiam sunt non tempora, vel illum velit debitis! Id porro sed consectetur dicta repellat necessitatibus fugit? Quo.
+                </p>
             </div>
         </section>
+
         <section class="expediente">
-            <div class="container-xxl expediente_box">
-                <div class="expediente_title">
+            <div class="container-xxl expediente__box">
+                <div class="expediente__title">
                     <h3>Expediente</h3>
                 </div>
-                <div class="expediente_info">
-                    <div class="info_box">
-                        <p class="title_info">Crédito</p>
-                        <p>Fulano de tal</p>
+                <div class="expediente__info">
+                    <div class="expediente__info-box">
+                        <p class="expediente__info-label">Crédito</p>
+                        <p class="expediente__info-value">Fulano de tal</p>
                     </div>
-                    <div class="info_box">
-                        <p class="title_info">Crédito</p>
-                        <p>Fulano de tal</p>
+                    <div class="expediente__info-box">
+                        <p class="expediente__info-label">Crédito</p>
+                        <p class="expediente__info-value">Fulano de tal</p>
                     </div>
-                    <div class="info_box">
-                        <p class="title_info">Crédito</p>
-                        <p>Fulano de tal</p>
+                    <div class="expediente__info-box">
+                        <p class="expediente__info-label">Crédito</p>
+                        <p class="expediente__info-value">Fulano de tal</p>
                     </div>
-                    <div class="info_box">
-                        <p class="title_info">Crédito</p>
-                        <p>Fulano de tal</p>
+                    <div class="expediente__info-box">
+                        <p class="expediente__info-label">Crédito</p>
+                        <p class="expediente__info-value">Fulano de tal</p>
                     </div>
-                    <div class="info_box">
-                        <p class="title_info">Crédito</p>
-                        <p>Fulano de tal</p>
+                    <div class="expediente__info-box">
+                        <p class="expediente__info-label">Crédito</p>
+                        <p class="expediente__info-value">Fulano de tal</p>
                     </div>
-                    <div class="info_box">
-                        <p class="title_info">Crédito</p>
-                        <p>Fulano de tal</p>
+                    <div class="expediente__info-box">
+                        <p class="expediente__info-label">Crédito</p>
+                        <p class="expediente__info-value">Fulano de tal</p>
                     </div>
-                    <div class="info_box">
-                        <p class="title_info">Crédito</p>
-                        <p>Fulano de tal</p>
+                    <div class="expediente__info-box">
+                        <p class="expediente__info-label">Crédito</p>
+                        <p class="expediente__info-value">Fulano de tal</p>
                     </div>
-                    <div class="info_box">
-                        <p class="title_info">Crédito</p>
-                        <p>Fulano de tal</p>
+                    <div class="expediente__info-box">
+                        <p class="expediente__info-label">Crédito</p>
+                        <p class="expediente__info-value">Fulano de tal</p>
                     </div>
                 </div>
             </div>
@@ -124,7 +140,9 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content custom-modal">
                     <div class="modal-header border-0">
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                        <button type="button" class="btn btn-close-custom" data-bs-dismiss="modal" aria-label="Fechar">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
                     </div>
                     <div class="modal-body">
                         
@@ -138,23 +156,23 @@
                             <div class="info_area">
                                 <!-- COLUNA 1 -->
                                 <div class="info-col">
-                                    <div class="info-item"><strong>Nome:</strong> <span id="modal-nome"></span></div>
-                                    <div class="info-item"><strong>Partido:</strong> <span id="modal-partido"></span></div>
-                                    <div class="info-item"><strong>Frentes:</strong> <span id="modal-frentes"></span></div>
+                                    <div class="info-item"><strong>Nome</strong> <span id="modal-nome"></span></div>
+                                    <div class="info-item"><strong>Partido</strong> <span id="modal-partido"></span></div>
+                                    <div class="info-item"><strong>Frentes</strong> <span id="modal-frentes"></span></div>
                                     <div class="info-double">
-                                        <div class="info-item uf"><strong>UF:</strong> <span id="modal-uf"></span></div>
-                                        <div class="info-item info-gender"><strong>Sexo:</strong> <span id="modal-sexo"></span></div>
+                                        <div class="info-item uf"><strong>UF</strong> <span id="modal-uf"></span></div>
+                                        <div class="info-item info-gender"><strong>Sexo</strong> <span id="modal-sexo"></span></div>
                                     </div>
-                                    <div class="info-item"><strong>Naturalidade:</strong> <span id="modal-naturalidade"></span></div>
+                                    <div class="info-item"><strong>Naturalidade</strong> <span id="modal-naturalidade"></span></div>
                                 </div>
 
                                 <!-- COLUNA 2 -->
                                 <div class="info-col">
                                     <div class="info-item"><strong>Nascimento:</strong> <span id="modal-nascimento"></span></div>
-                                    <div class="info-item"><strong>CPF:</strong> <span id="modal-cpf"></span></div>
-                                    <div class="info-item"><strong>Email:</strong> <span id="modal-email"></span></div>
-                                    <div class="info-item"><strong>Escolaridade:</strong> <span id="modal-escolaridade"></span></div>
-                                    <div class="info-item"><strong>Nome Civil:</strong> <span id="modal-nomecivil"></span></div>
+                                    <div class="info-item"><strong>CPF</strong> <span id="modal-cpf"></span></div>
+                                    <div class="info-item"><strong>Email</strong> <span id="modal-email"></span></div>
+                                    <div class="info-item"><strong>Escolaridade</strong> <span id="modal-escolaridade"></span></div>
+                                    <div class="info-item"><strong>Nome Civil</strong> <span id="modal-nomecivil"></span></div>
                                 </div>
                             </div>
                         </div>

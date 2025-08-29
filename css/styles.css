@@ -20,7 +20,7 @@
 
 /* HEADER */
 
-header {
+.header {
     position: fixed;
     height: 4.375rem;
     background-color: var(--color-header);
@@ -28,55 +28,53 @@ header {
     z-index: 2;
 }
 
-.header_area {
+.header__container {
     display: flex;
     align-items: center;
     height: 100%;
-    color: var(--unnamed-color-efece2);
-}
-
-.header_box {
-    display: flex;
     justify-content: space-between;
-    flex-direction: row;
+    position: relative;
 }
 
-.header_icons {
+.header__hamburger {
+    font-size: 35px;
+    transition: all 0.4s;
+    cursor: pointer;
+    color: var(--unnamed-color-ffffff);
+}
+
+.header__hamburger:hover {
+    transform: scale(1.2);
+}
+
+.header__logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header__logo img {
+    width: 3.125rem;
+    height: 3.125rem;
+}
+
+.header__icons {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
     gap: 0.9375rem;
+    color: var(--unnamed-color-ffffff);
 }
 
-.header_icons i:hover {
-    cursor: pointer;
-    transition: all 0.4s;
-    transform: scale(1.2);
-}
-
-.header_icons i {
+.header__icon {
     font-size: 1.5rem;
-}
-
-.header_hamburguer {
-    font-size: 35px;
     transition: all 0.4s;
-}
-
-.header_hamburguer:hover {
     cursor: pointer;
-    transform: scale(1.2)
 }
 
-.header_img_box {
-    display: flex;
-    justify-content: center;
-}
-
-.header_img_box img {
-    width:50px;
-    height: 50px;
+.header__icon:hover {
+    transform: scale(1.2);
 }
 
 /* INTRO AREA */
@@ -93,7 +91,7 @@ header {
     background-repeat: no-repeat;
 }
 
-.intro_box {
+.intro__container {
     height: 100%;
     text-align: center;
     font-size: 1.125rem;
@@ -101,71 +99,86 @@ header {
     color: #fff;
     font-family: 'Roboto', sans-serif;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: space-between;
 }
 
-.links_intro {
+/* Breadcrumb links */
+
+.intro__breadcrumbs {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
-    font-family: "Roboto", sans-serif;
+    gap: 0.125rem;
+    font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    font-size: 16px;
-    margin-top: 90px;
+    font-size: 1rem;
+    margin-top: 5.625rem;
 }
 
-.links_intro i {
+.intro__breadcrumb-separator {
     color: #2179CE;
-    font-size: 12px;
+    font-size: 0.75rem;
 }
 
-.links_intro a {
-    font-family: "Roboto", sans-serif;
+.intro__breadcrumb-link {
+    font-family: 'Roboto', sans-serif;
     font-weight: bold;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 1rem;
     transition: all 0.4s;
 }
 
-.links_intro a:hover {
+.intro__breadcrumb-link:hover {
     transform: scale(1.1);
     cursor: pointer;
 }
 
-.link_one {
+.intro__breadcrumb-link--inicio,
+.intro__breadcrumb-link--interativos {
     color: var(--unnamed-color-2179ce);
 }
 
-.link_two {
-    color: var(--unnamed-color-2179ce);
-}
-
-.link_three {
+.intro__breadcrumb-link--monitor {
     color: var(--unnamed-color-999999);
 }
 
-.intro_links {
+/* Description + social links */
+
+.intro__info {
+    margin-bottom: 3.75rem;
+}
+
+.intro__description {
+    font-size: 1.125rem;
+}
+
+.intro__date {
+    color: var(--unnamed-color-999999);
+}
+
+/* Social links */
+
+.intro__social-links {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2.1875rem;
     gap: 0.625rem;
+    margin-top: 0.5rem;
 }
 
-.intro_links i {
-    transition: all 0.4s;
-    font-size: 2.1875rem;
-}
-
-.intro_links i:hover {
+.intro__social-icon {
+    width: 2.1875rem;
+    height: 2.1875rem;
+    border-radius: 50%;
     cursor: pointer;
-    transform: scale(1.2);
+    object-fit: contain;
+    transition: all 0.4s;
 }
 
-.intro_date {
-    color: var(--unnamed-color-999999);
+.intro__social-icon:hover {
+    transform: scale(1.2);
 }
 
 /* DEPUTADOS SECTION */
@@ -174,20 +187,20 @@ header {
     background-color: var(--unnamed-color-090b30);
 }
 
-.deputados-title {
+.deputados__header {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.deputados-title h2 {
+.deputados__title {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
-    font-size: 48px;
+    font-size: 3rem;
     color: var(--unnamed-color-fc7300);
 }
 
-.deputados-card {
+.deputados__card {
     flex: 0 0 9%;
     display: none;
     flex-direction: column;
@@ -204,11 +217,11 @@ header {
     transition: all 0.4s;
 }
 
-.deputados-card:hover {
+.deputados__card:hover {
     transform: scale(1.05);
 }
 
-.deputados-card img {
+.deputados__card-img {
     width: 80px;
     height: 80px;
     object-fit: cover;
@@ -217,7 +230,7 @@ header {
     margin-bottom: 0.5rem;
 }
 
-.deputados-card p {
+.deputados__card-name {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 1.125rem;
@@ -225,17 +238,21 @@ header {
     margin-bottom: 0;
 }
 
-#deputados-list {
+.deputados__card-party {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--unnamed-color-999999);
+}
+
+.deputados__list {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
 }
 
-.card-party {
-    text-align: center;
-    font-size: 14px;
-    color: var(--unnamed-color-999999);
+.deputados__card--template {
+    display: none;
 }
 
 .hide {
@@ -250,25 +267,26 @@ header {
     background-color: var(--unnamed-color-090b30);
 }
 
-.metodologia_box {
+.metodologia__container {
     max-width: 51.25rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.metodologia_box h3 {
+.metodologia__title {
     font-family: "Roboto", sans-serif;
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
     color: var(--unnamed-color-fc7300);
 }
 
-.metodologia_box p {
+.metodologia__text {
     color: #fff;
     font-family: "Roboto", sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     text-align: justify;
+    margin-bottom: 1rem;
 }
 
 /* EXPEDIENTE */
@@ -278,7 +296,7 @@ header {
     background-color: var(--unnamed-color-090b30);
 }
 
-.expediente_box {
+.expediente__box {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -286,33 +304,48 @@ header {
     color: #fff;
 }
 
-.expediente_box h3 {
+.expediente__title h3 {
     font-size: 1.5rem;
     font-family: "Roboto", sans-serif;
     font-weight: bold;
     color: var(--unnamed-color-fc7300);
-
+    margin-bottom: 1rem;
 }
 
-.expediente_info {
+.expediente__info {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    max-height: 280px;
+    gap: 8px;
+    max-height: 17.5rem;
 }
 
-.title_info {
+.expediente__info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1 1 20%;
+}
+
+.expediente__info-label {
     font-weight: bold;
+    font-size: 1.25rem;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 0;
 }
 
-.info_box p {
+.expediente__info-value {
+    font-size: 1.25rem;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
     margin-bottom: 0;
-    font-size: 20px;
 }
+
 
 /* MODAL */
+
 .modal-dialog {
-    max-width: 1030px;
+    max-width: 64.375rem;
     margin: auto;
 }
 
@@ -326,37 +359,37 @@ header {
 .info-double .info-item {
     display: flex;
     align-items: center;
-    height: 30px;
-    line-height: 30px;
+    height: 1.875rem;
+    line-height: 1.875rem;
     box-shadow: 0 2px 5px rgba(239, 236, 226, 0.2);
-    gap: 4px;
-    font-size: 14px;
+    gap: 0.625rem;
+    font-size: 0.875rem;
 }
 
 .info-double .uf strong {
-    width: 31px;
+    width: 1.9375rem;
     display: inline-block;
     background: #fff;
     color: #000;
     text-align: center;
     border: 1px solid #000;
-    line-height: 30px;
+    line-height: 1.875rem;
 }
 
 .custom-modal {
-    width: 1030px;
-    height: 465px;
+    width: 64.375rem;
+    height: 29.0625rem;
     background-color: #0d0a2b;
     color: #fff;
     border-radius: 0;
-    padding: 20px;
+    padding: 1.25rem;
     display: flex;
-    gap: 20px;
+    gap: 1.25rem;
 }
 
 .deputado_img {
-    width: 191px;
-    height: 255px;
+    width: 11.9375rem;
+    height: 15.9375rem;
     object-fit: cover;
     border-radius: 0;
     box-shadow: 0px 2px 6px rgba(0,0,0,0.3);
@@ -370,27 +403,27 @@ header {
 
 .info_area {
     display: flex;
-    max-height: 255px;
-    gap: 20px;
+    max-height: 15.9375rem;
+    gap: 1.25rem;
 }
 
 .info-col {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 1.5625rem;
 }
 
 .info-item {
     font-family: 'Roboto', sans-serif;
     display: flex;
     align-items: center;
-    gap: 10px;
-    height: 30px;
-    line-height: 30px;
+    gap: 0.625rem;
+    height: 1.875rem;
+    line-height: 1.875rem;
     overflow: hidden;
     background: none;
-    font-size: 14px;
+    font-size: 0.875rem;
     box-shadow: 0 2px 5px rgba(239, 236, 226, 0.2);
     width: 100%;
 }
@@ -403,7 +436,7 @@ header {
     border-radius: 0;
     display: inline-block;
     height: 100%;
-    line-height: 30px;
+    line-height: 1.875rem;
     box-sizing: border-box;
     box-shadow: 0 1px 3px rgba(239, 236, 226, 0.2);
 }
@@ -417,12 +450,41 @@ header {
 
 .modal-layout {
     display: flex;
-    gap: 20px;
+    gap: 1.25rem;
 }
 
 /* BOTÃO DE X */
 
+.modal-header {
+    justify-content: end;
+}
 
+.btn-close-custom {
+    width: 32px;
+    height: 32px;
+    background-color: red;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-close-custom i {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+.btn-close-custom:hover {
+    background-color: darkred;
+    transform: scale(1.1);
+}
 
 @media (max-width: 768px) {
 
@@ -459,6 +521,7 @@ header {
 
     .custom-modal {
         height: auto;
+        width: 100%;
         flex-direction: column;
         align-items: center;
     }
@@ -470,7 +533,7 @@ header {
 
     .info_area {
         flex-direction: column;
-        gap: 15px;
+        gap: 0.9375rem;
         max-height: none;
     }
 
