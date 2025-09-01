@@ -67,6 +67,10 @@ function loadDeputado(detalhes) {
   $("#modal-escolaridade").text(detalhes.escolaridade || "Não disponível");
   $("#modal-nomecivil").text(detalhes.nomeCivil || "Não disponível");
   $("#modal-nascimento").text(detalhes.dataNascimento || "Não disponível");
+
+  $("#modal-naturalidade").text("Brasileiro");
+
+  $("#modal-frentes").text("Não disponível");
 }
 
 // Iniciar a aplicação
