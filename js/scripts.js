@@ -1,50 +1,73 @@
 const url = "https://dadosabertos.camara.leg.br/api/v2/deputados?siglaUf=CE&ordem=ASC&ordenarPor=nome";
 
-const templateCard = document.querySelector(".deputados__card--template");
-const deputadosList = document.querySelector(".deputados__list");
+const templateCard = $(".deputados__card--template");
+const deputadosList = $(".deputados__list");
 
-async function getAllInfo() {
-  const response = await fetch(url); // Faz a requisição da API
-  const data = await response.json(); // Converte a resposta em JSON
+function getAllInfo() {
+  // Requisição AJAX para obter os dados dos deputados
+  $.ajax({
+    url: url,
+    method: 'GET',
+    dataType: 'json',
+    success: function(data) {
+      console.log(data);
+      
+      $.each(data.dados, function(index, deputado) {
+        const card = templateCard.clone();
+        card.css('display', 'flex');
+        card.removeClass('deputados__card--template');
 
-  data.dados.forEach((deputado) => { // Vai percorrer cada deputado
-    const card = templateCard.cloneNode(true);
-    card.style.display = "flex";
-    card.classList.remove("deputados__card--template");
+        // Preenchimento do card com os dados do deputado || Com Ajax
+        card.find(".deputados__card-img").attr('src', deputado.urlFoto);
+        card.find(".deputados__card-name").text(deputado.nome);
+        card.find(".deputados__card-party").text(`(${deputado.siglaPartido})`);
 
-    // Preenchimento dos dados do card
-    card.querySelector(".deputados__card-img").src = deputado.urlFoto;
-    card.querySelector(".deputados__card-name").innerText = deputado.nome;
-    card.querySelector(".deputados__card-party").innerText = `(${deputado.siglaPartido})`;
+        // Atualização do conteúdo do modal ao clicar no card
+        card.on("click", function() {
+          getDeputadoDetails(deputado.id);
+        });
 
-    // Atualização do conteúdo do modal ao clicar no card
-    card.addEventListener("click", async () => {
-      try {
-        const idResponse = await fetch(`https://dadosabertos.camara.leg.br/api/v2/deputados/${deputado.id}`);
-        const jsonResponse = await idResponse.json();
-        const detalhes = jsonResponse.dados;
-
-        loadDeputado(detalhes);
-      } catch (error) {
-        console.error("Erro ao buscar detalhes do deputado:", error);
-      }
-    });
-
-    deputadosList.appendChild(card);
+        deputadosList.append(card);
+      });
+    },
+    error: function(xhr, status, error) {
+      console.error('Falha ao carregar os dados dos deputados:', error);
+    }
   });
 }
 
-getAllInfo();
+function getDeputadoDetails(deputadoId) {
+  const detailUrl = `https://dadosabertos.camara.leg.br/api/v2/deputados/${deputadoId}`;
+  
+  // Requisição AJAX para obter os detalhes do deputado
+  $.ajax({
+    url: detailUrl,
+    method: 'GET',
+    dataType: 'json',
+    success: function(jsonResponse) {
+      console.log(jsonResponse);
+      const detalhes = jsonResponse.dados;
+      
+      loadDeputado(detalhes);
+    },
+    error: function(xhr, status, error) {
+      console.error('Falha ao carregar os detalhes do deputado:', error);
+    }
+  });
+}
 
 function loadDeputado(detalhes) {
-  document.getElementById("modal-foto").src = detalhes.ultimoStatus.urlFoto;
-  document.getElementById("modal-nome").textContent = detalhes.ultimoStatus.nomeEleitoral;
-  document.getElementById("modal-partido").textContent = detalhes.ultimoStatus.siglaPartido;
-  document.getElementById("modal-uf").textContent = detalhes.ultimoStatus.siglaUf;
-  document.getElementById("modal-sexo").textContent = detalhes.sexo ?? "Não disponível";
-  document.getElementById("modal-cpf").textContent = detalhes.cpf ?? "Não disponível";
-  document.getElementById("modal-email").textContent = detalhes.ultimoStatus.gabinete.email ?? "Não disponível";
-  document.getElementById("modal-escolaridade").textContent = detalhes.escolaridade ?? "Não disponível";
-  document.getElementById("modal-nomecivil").textContent = detalhes.nomeCivil ?? "Não disponível";
-  document.getElementById("modal-nascimento").textContent = detalhes.dataNascimento ?? "Não disponível";
+  $("#modal-foto").attr('src', detalhes.ultimoStatus.urlFoto);
+  $("#modal-nome").text(detalhes.ultimoStatus.nomeEleitoral);
+  $("#modal-partido").text(detalhes.ultimoStatus.siglaPartido);
+  $("#modal-uf").text(detalhes.ultimoStatus.siglaUf);
+  $("#modal-sexo").text(detalhes.sexo || "Não disponível");
+  $("#modal-cpf").text(detalhes.cpf || "Não disponível");
+  $("#modal-email").text(detalhes.ultimoStatus.gabinete.email || "Não disponível");
+  $("#modal-escolaridade").text(detalhes.escolaridade || "Não disponível");
+  $("#modal-nomecivil").text(detalhes.nomeCivil || "Não disponível");
+  $("#modal-nascimento").text(detalhes.dataNascimento || "Não disponível");
 }
+
+// Iniciar a aplicação
+getAllInfo();
