@@ -73,5 +73,5 @@ function loadDeputado(detalhes) {
   $("#modal-frentes").text("Não disponível");
 }
 
-// Iniciar a aplicação
+// Inicialização do script
 getAllInfo();
