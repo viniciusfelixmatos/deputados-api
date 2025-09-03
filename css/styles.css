@@ -427,7 +427,6 @@ body.modal-open header {
     gap: 0.625rem;
     height: 1.875rem;
     line-height: 1.875rem;
-    overflow: hidden;
     background: none;
     font-size: 0.875rem;
     box-shadow: 0 2px 5px rgba(239, 236, 226, 0.2);
@@ -494,6 +493,26 @@ body.modal-open header {
 .btn-close-custom:hover {
     background-color: darkred;
     transform: scale(1.1);
+}
+
+.dropdown-toggle {
+    background-color: transparent;
+    border: none;
+    padding: 0 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 243px;
+}
+
+.dropdown-toggle:hover {
+    background-color: transparent;
+    border: none;
+}
+
+.btn:active, .btn.show {
+    background-color: transparent !important;
+    border: none !important;
 }
 
 @media (max-width: 768px) {

@@ -4,6 +4,7 @@ const templateCard = $(".deputados__card--template");
 const deputadosList = $(".deputados__list");
 
 function getAllInfo() {
+
   // Requisição AJAX para obter os dados dos deputados
   $.ajax({
     url: url,
@@ -38,7 +39,26 @@ function getAllInfo() {
 
 function getDeputadoDetails(deputadoId) {
   const detailUrl = `https://dadosabertos.camara.leg.br/api/v2/deputados/${deputadoId}`;
-  
+
+  const urlfrentes = `https://dadosabertos.camara.leg.br/api/v2/deputados/${deputadoId}/frentes`
+
+  // Requisição para Obter detalhes das frentes
+  async function getinfofrentes() {
+    const responsefrentes = await fetch(urlfrentes);
+    const datafrentes = await responsefrentes.json();
+
+    let firstDataFrentes = datafrentes.dados[0].titulo;
+    firstDataFrentes.indexOf("Frente", "Parlamentar");
+
+    console.log(firstDataFrentes.indexOf("Frente", "Parlamentar"));
+    console.log($("#modal-frentes"));
+
+    $("#modal-frentes").text(firstDataFrentes);
+    datafrentes[0]
+  }
+
+  getinfofrentes();
+
   // Requisição AJAX para obter os detalhes do deputado
   $.ajax({
     url: detailUrl,
@@ -67,9 +87,7 @@ function loadDeputado(detalhes) {
   $("#modal-escolaridade").text(detalhes.escolaridade || "Não disponível");
   $("#modal-nomecivil").text(detalhes.nomeCivil || "Não disponível");
   $("#modal-nascimento").text(detalhes.dataNascimento || "Não disponível");
-
   $("#modal-naturalidade").text("Brasileiro");
-
   $("#modal-frentes").text("Não disponível");
 }
 
