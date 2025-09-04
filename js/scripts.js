@@ -10,10 +10,10 @@ function getAllInfo() {
     url: url,
     method: 'GET',
     dataType: 'json',
-    success: function(data) {
+    success: function (data) {
       console.log(data);
-      
-      $.each(data.dados, function(index, deputado) {
+
+      $.each(data.dados, function (index, deputado) {
         const card = templateCard.clone();
         card.css('display', 'flex');
         card.removeClass('deputados__card--template');
@@ -24,14 +24,14 @@ function getAllInfo() {
         card.find(".deputados__card-party").text(`(${deputado.siglaPartido})`);
 
         // Atualização do conteúdo do modal ao clicar no card
-        card.on("click", function() {
+        card.on("click", function () {
           getDeputadoDetails(deputado.id);
         });
 
         deputadosList.append(card);
       });
     },
-    error: function(xhr, status, error) {
+    error: function (xhr, status, error) {
       console.error('Falha ao carregar os dados dos deputados:', error);
     }
   });
@@ -42,19 +42,38 @@ function getDeputadoDetails(deputadoId) {
 
   const urlfrentes = `https://dadosabertos.camara.leg.br/api/v2/deputados/${deputadoId}/frentes`
 
+  const lifrentes = document.getElementById("itemdropdown");
+  const tablefrentes = document.getElementById("modal-frentes");
+
   // Requisição para Obter detalhes das frentes
   async function getinfofrentes() {
     const responsefrentes = await fetch(urlfrentes);
     const datafrentes = await responsefrentes.json();
 
     let firstDataFrentes = datafrentes.dados[0].titulo;
-    firstDataFrentes.indexOf("Frente", "Parlamentar");
+    let replacefrentes = firstDataFrentes.replace("Frente Parlamentar", "");
 
-    console.log(firstDataFrentes.indexOf("Frente", "Parlamentar"));
+    let secondDataFrentes = datafrentes.dados;
+    // let replaceitemsfrentes = secondDataFrentes.replace("Frente Parlamentar","");
+    console.log(secondDataFrentes);
+    
+    let filterFive = secondDataFrentes.slice(0, 5)
+
+    console.log(firstDataFrentes);
+    console.log(replacefrentes);
     console.log($("#modal-frentes"));
 
-    $("#modal-frentes").text(firstDataFrentes);
+    $("#modal-frentes").text(replacefrentes);
     datafrentes[0]
+
+    tablefrentes.addEventListener("click", () => {
+      const infoli = lifrentes.cloneNode(true);
+      console.log(infoli);
+      infoli.style.display = "flex";
+
+      $("#itemdropdown").text(filterFive);
+    });
+
   }
 
   getinfofrentes();
@@ -64,13 +83,15 @@ function getDeputadoDetails(deputadoId) {
     url: detailUrl,
     method: 'GET',
     dataType: 'json',
-    success: function(jsonResponse) {
+    success: function (jsonResponse) {
       console.log(jsonResponse);
       const detalhes = jsonResponse.dados;
-      
+
+      console.log(jsonResponse);
+
       loadDeputado(detalhes);
     },
-    error: function(xhr, status, error) {
+    error: function (xhr, status, error) {
       console.error('Falha ao carregar os detalhes do deputado:', error);
     }
   });

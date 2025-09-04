@@ -11,7 +11,7 @@
     --breadcrumb-blue: #2179CE;
     --text-medium-gray: #999999;
     --font-roboto: 'Roboto', sans-serif;
-}
+}   
 
 * {
     margin: 0;
@@ -384,7 +384,7 @@ body.modal-open header {
 .custom-modal {
     width: 64.375rem;
     height: 29.0625rem;
-    background-color: #0d0a2b;
+    background-color: var(--background-dark-blue);
     color: #fff;
     border-radius: 0.625rem;
     box-shadow: 0 0 10px rgba(239, 236, 226, 0.4);
@@ -461,6 +461,21 @@ body.modal-open header {
     display: flex;
     gap: 1.25rem;
 }
+
+.dropdown-frentes {
+    right: 0 !important;
+    left: -10px !important;
+    background-color: var(--background-dark-blue);
+}
+
+.dropdown-frentes li a {
+    color: #fff;
+    padding-left: 0.625rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 
 /* BOTÃO DE X */
 
