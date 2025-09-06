@@ -462,6 +462,8 @@ body.modal-open header {
     gap: 1.25rem;
 }
 
+/* DROPDOWN */
+
 .dropdown-frentes {
     right: 0 !important;
     left: -10px !important;
@@ -474,6 +476,24 @@ body.modal-open header {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.dropdown-frentes-toggle::after {
+  content: ""; /* caret padrão do Bootstrap */
+  display: inline-block;  /* importante para alinhar com o texto */
+  width: 0;
+  height: 0;
+  margin-left: 0.5rem;   /* distância entre texto e caret */
+  vertical-align: middle; /* alinha verticalmente com o texto */
+  border-top: 0.3em solid;       /* triângulo apontando para baixo */
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+  
+  /* posição personalizada se quiser */
+  position: relative;   /* ou static */
+  top: 0;               /* ajusta verticalmente */
+  left: 0;              /* ajusta horizontalmente se quiser */
 }
 
 
