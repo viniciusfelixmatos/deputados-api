@@ -4,104 +4,113 @@ const templateCard = $(".deputados__card--template");
 const deputadosList = $(".deputados__list");
 
 function getAllInfo() {
+    $.ajax({
+        url: url,
+        method: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            console.log("Deputados carregados:", data.dados.length);
+            
+            $.each(data.dados, function (index, deputado) {
+                const card = templateCard.clone();
+                card.css('display', 'flex');
+                card.removeClass('deputados__card--template');
 
-  // Requisição AJAX para obter os dados dos deputados
-  $.ajax({
-    url: url,
-    method: 'GET',
-    dataType: 'json',
-    success: function (data) {
-      console.log(data);
+                // Preenchimento do card
+                card.find(".deputados__card-img").attr('src', deputado.urlFoto);
+                card.find(".deputados__card-name").text(deputado.nome);
+                card.find(".deputados__card-party").text(`(${deputado.siglaPartido})`);
 
-      $.each(data.dados, function (index, deputado) {
-        const card = templateCard.clone();
-        card.css('display', 'flex');
-        card.removeClass('deputados__card--template');
+                // Click handler para abrir o modal
+                card.on("click", function () {
+                    getDeputadoDetails(deputado.id);
+                    $('#exampleModal').modal('show');
+                });
 
-        // Preenchimento do card com os dados do deputado || Com Ajax
-        card.find(".deputados__card-img").attr('src', deputado.urlFoto);
-        card.find(".deputados__card-name").text(deputado.nome);
-        card.find(".deputados__card-party").text(`(${deputado.siglaPartido})`);
-
-        // Atualização do conteúdo do modal ao clicar no card
-        card.on("click", function () {
-          getDeputadoDetails(deputado.id);
-        });
-
-        deputadosList.append(card);
-      });
-    },
-    error: function (xhr, status, error) {
-      console.error('Falha ao carregar os deputados:', error);
-    }
-  });
+                deputadosList.append(card);
+            });
+        },
+        error: function (xhr, status, error) {
+            console.error('Falha ao carregar os deputados:', error);
+        }
+    });
 }
 
 function getDeputadoDetails(deputadoId) {
-  const detailUrl = `https://dadosabertos.camara.leg.br/api/v2/deputados/${deputadoId}`;
-  const frentesUrl = `https://dadosabertos.camara.leg.br/api/v2/deputados/${deputadoId}/frentes`;
+    const detailUrl = `https://dadosabertos.camara.leg.br/api/v2/deputados/${deputadoId}`;
+    const frentesUrl = `https://dadosabertos.camara.leg.br/api/v2/deputados/${deputadoId}/frentes`;
 
-  const dropdownButton = $(".dropdown-frentes-toggle");
-  const dropdownMenu = $(".dropdown-frentes");
+    const dropdownMenu = $(".dropdown-frentes");
+    const dropdownFrenteText = $(".dropdown-frente-text");
 
-  // Limpa o menu
-  dropdownMenu.empty();
+    if (dropdownFrenteText.length === 0) {
+        console.error("Span com classe 'dropdown-frente-text' não encontrado!");
+        return;
+    }
 
-  $.ajax({
-    url: detailUrl,
-    method: 'GET',
-    dataType: 'json',
-    success: function (jsonResponse) {
-      const detalhes = jsonResponse.dados;
-      loadDeputado(detalhes);
+    dropdownMenu.empty();
 
-      // Buscar frentes
-      $.ajax({
-        url: frentesUrl,
+    $.ajax({
+        url: detailUrl,
         method: 'GET',
         dataType: 'json',
-        success: function (frentesResponse) {
-          const frentes = frentesResponse.dados;
+        success: function (jsonResponse) {
+            const detalhes = jsonResponse.dados;
+            loadDeputado(detalhes);
 
-          if (frentes.length === 0) {
-            dropdownButton.text("Não disponível");
-          } else {
-            // Atualiza o botão com a primeira frente
-            const primeiraFrente = frentes[0].titulo.replace("Frente Parlamentar", "").trim();
-            dropdownButton.text(primeiraFrente);
+            // Buscar frentes
+            $.ajax({
+                url: frentesUrl,
+                method: 'GET',
+                dataType: 'json',
+                success: function (frentesResponse) {
+                    const frentes = frentesResponse.dados;
 
-            // Adiciona todas as frentes (até 5) no menu
-            frentes.slice(0, 5).forEach(frente => {
-              const nomeFrente = frente.titulo.replace("Frente Parlamentar", "").trim();
-              dropdownMenu.append(`<li><a class="dropdown-item" href="#">${nomeFrente}</a></li>`);
+                    if (frentes.length === 0) {
+                        dropdownFrenteText.text("Não disponível");
+                    } else {
+                        const primeiraFrente = frentes[0].titulo.replace("Frente Parlamentar", "").trim();
+                        dropdownFrenteText.text(primeiraFrente);
+
+                        // Adicionar até 5 frentes adicionais ao dropdown
+                        frentes.slice(1, 6).forEach(frente => {
+                            const nomeFrente = frente.titulo.replace("Frente Parlamentar", "").trim();
+                            dropdownMenu.append(`<li><a class="dropdown-item" href="#">${nomeFrente}</a></li>`);
+                        });
+                    }
+                },
+                error: function () {
+                    dropdownFrenteText.text("Não disponível");
+                }
             });
-          }
         },
         error: function () {
-          dropdownButton.text("Não disponível");
+            dropdownFrenteText.text("Erro ao carregar");
+            $('#exampleModal').modal('show');
         }
-      });
-    },
-    error: function () {
-      dropdownButton.text("Erro ao carregar");
-    }
-  });
+    });
 }
-
 
 function loadDeputado(detalhes) {
-  $("#modal-foto").attr('src', detalhes.ultimoStatus.urlFoto);
-  $("#modal-nome").text(detalhes.ultimoStatus.nomeEleitoral);
-  $("#modal-partido").text(detalhes.ultimoStatus.siglaPartido);
-  $("#modal-uf").text(detalhes.ultimoStatus.siglaUf);
-  $("#modal-sexo").text(detalhes.sexo || "Não disponível");
-  $("#modal-cpf").text(detalhes.cpf || "Não disponível");
-  $("#modal-email").text(detalhes.ultimoStatus.gabinete.email || "Não disponível");
-  $("#modal-escolaridade").text(detalhes.escolaridade || "Não disponível");
-  $("#modal-nomecivil").text(detalhes.nomeCivil || "Não disponível");
-  $("#modal-nascimento").text(detalhes.dataNascimento || "Não disponível");
-  $("#modal-naturalidade").text("Brasileiro");
+    $("#modal-foto").attr('src', detalhes.ultimoStatus?.urlFoto || "");
+    $("#modal-nome").text(detalhes.ultimoStatus?.nomeEleitoral || "Não disponível");
+    $("#modal-partido").text(detalhes.ultimoStatus?.siglaPartido || "Não disponível");
+    $("#modal-uf").text(detalhes.ultimoStatus?.siglaUf || "Não disponível");
+    $("#modal-sexo").text(detalhes.sexo ? (detalhes.sexo === "M" ? "Masculino" : "Feminino") : "Não disponível");
+    $("#modal-cpf").text(detalhes.cpf || "Não disponível");
+    $("#modal-email").text(detalhes.ultimoStatus?.gabinete?.email || "Não disponível");
+    $("#modal-escolaridade").text(detalhes.escolaridade || "Não disponível");
+    $("#modal-nomecivil").text(detalhes.nomeCivil || "Não disponível");
+    $("#modal-nascimento").text(detalhes.dataNascimento ? formatarData(detalhes.dataNascimento) : "Não disponível");
+    $("#modal-naturalidade").text(detalhes.municipioNascimento || "Brasileiro");
 }
   
-// Inicializa
-getAllInfo();
+// Formata a data para o padrão brasileiro
+function formatarData(data) {
+    return new Date(data).toLocaleDateString('pt-BR');
+}
+
+// Inicializa quando o documento estiver pronto
+$(document).ready(function() {
+    getAllInfo();
+});

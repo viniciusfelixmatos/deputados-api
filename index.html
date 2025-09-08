@@ -152,74 +152,71 @@
                 <div class="modal-body">
                     <div class="modal-layout">
 
-                    <div class="img_modal">
-                        <img id="modal-foto" src="" class="deputado_img" alt="Deputado">
-                    </div>
-
                     <div class="info_table">
                         <div class="info_area">
+                            <div class="img_modal">
+                                <img id="modal-foto" src="" class="deputado_img" alt="Deputado">
+                            </div>
+                            <div class="info_cols">
+                                <!-- COLUNA 1 -->
+                                <div class="info-col">
+                                    <div class="info-item">
+                                        <strong>Nome</strong> 
+                                        <span id="modal-nome"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong>Partido</strong> 
+                                        <span id="modal-partido"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong>Frentes</strong>
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle dropdown-frentes-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <span class="dropdown-frente-text">Dropdown button</span>
+                                            </button>
+                                            <ul class="dropdown-menu dropdown-frentes"></ul>
+                                        </div>
+                                    </div>
+                                    <div class="info-double">
+                                        <div class="info-item uf">
+                                            <strong>UF</strong> 
+                                            <span id="modal-uf"></span>
+                                        </div>
+                                        <div class="info-item info-gender">
+                                            <strong>Sexo</strong> 
+                                            <span id="modal-sexo"></span>
+                                        </div>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong>Naturalidade</strong> 
+                                        <span id="modal-naturalidade"></span>
+                                    </div>
+                                </div>
 
-                        <!-- COLUNA 1 -->
-                        <div class="info-col">
-                            <div class="info-item">
-                                <strong>Nome</strong> 
-                                <span id="modal-nome"></span>
-                            </div>
-                            <div class="info-item">
-                                <strong>Partido</strong> 
-                                <span id="modal-partido"></span>
-                            </div>
-                            <div class="info-item">
-                                <strong>Frentes</strong> 
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle dropdown-frentes-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <span class="dropdown-frente-text">Dropdown button</span>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-frentes">
-                                        <!-- Itens serão populados dinamicamente via JS -->
-                                    </ul>
+                                <!-- COLUNA 2 -->
+                                <div class="info-col">
+                                    <div class="info-item">
+                                        <strong>Nascimento:</strong> 
+                                        <span id="modal-nascimento"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong>CPF</strong> 
+                                        <span id="modal-cpf"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong>Email</strong> 
+                                        <span id="modal-email"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong>Escolaridade</strong> 
+                                        <span id="modal-escolaridade"></span>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong class="nome-info">Nome Civil</strong> 
+                                        <span id="modal-nomecivil"></span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="info-double">
-                                <div class="info-item uf">
-                                    <strong>UF</strong> 
-                                    <span id="modal-uf"></span>
-                                </div>
-                                <div class="info-item info-gender">
-                                    <strong>Sexo</strong> 
-                                    <span id="modal-sexo"></span>
-                                </div>
-                            </div>
-                            <div class="info-item">
-                                <strong>Naturalidade</strong> 
-                                <span id="modal-naturalidade"></span>
-                            </div>
-                        </div>
-
-                        <!-- COLUNA 2 -->
-                        <div class="info-col">
-                            <div class="info-item">
-                                <strong>Nascimento:</strong> 
-                                <span id="modal-nascimento"></span>
-                            </div>
-                            <div class="info-item">
-                                <strong>CPF</strong> 
-                                <span id="modal-cpf"></span>
-                            </div>
-                            <div class="info-item">
-                                <strong>Email</strong> 
-                                <span id="modal-email"></span>
-                            </div>
-                            <div class="info-item">
-                                <strong>Escolaridade</strong> 
-                                <span id="modal-escolaridade"></span>
-                            </div>
-                            <div class="info-item">
-                                <strong>Nome Civil</strong> 
-                                <span id="modal-nomecivil"></span>
-                            </div>
-                        </div>
-
                         </div>
                     </div>
 
@@ -229,10 +226,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
 
     </main>
 

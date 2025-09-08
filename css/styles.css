@@ -409,6 +409,7 @@ body.modal-open header {
 
 .info_area {
     display: flex;
+    justify-content: center;
     max-height: 15.9375rem;
     gap: 1.25rem;
 }
@@ -417,6 +418,7 @@ body.modal-open header {
     flex: 1;
     display: flex;
     flex-direction: column;
+    max-width: 295px;
     gap: 1.5625rem;
 }
 
@@ -479,23 +481,66 @@ body.modal-open header {
 }
 
 .dropdown-frentes-toggle::after {
-  content: ""; /* caret padrão do Bootstrap */
-  display: inline-block;  /* importante para alinhar com o texto */
-  width: 0;
-  height: 0;
-  margin-left: 0.5rem;   /* distância entre texto e caret */
-  vertical-align: middle; /* alinha verticalmente com o texto */
-  border-top: 0.3em solid;       /* triângulo apontando para baixo */
-  border-right: 0.3em solid transparent;
-  border-bottom: 0;
-  border-left: 0.3em solid transparent;
-  
-  /* posição personalizada se quiser */
-  position: relative;   /* ou static */
-  top: 0;               /* ajusta verticalmente */
-  left: 0;              /* ajusta horizontalmente se quiser */
+    content: "\F282";
+    font-family: 'bootstrap-icons';
+    display: inline-block;
+    margin-left: 0.75em;
+    font-size: 0.875em;
+    transition: transform 0.3s ease;
+    font-weight: normal;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
 }
 
+.dropdown-frente-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 190px;
+}
+
+.dropdown-frentes-toggle.show::after {
+    transform: rotate(180deg);
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    padding: 0 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 245px;
+}
+
+.dropdown-toggle:hover {
+    background-color: transparent;
+    border: none;
+}
+
+.nome-info {
+    width:95px;
+}
+
+.info_cols {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 610px;
+    gap: 20px;
+}
+
+body.modal-open {
+    padding-right: 0 !important;
+    overflow: hidden;
+}
+
+.modal {
+    padding-left: 0 !important;
+}
 
 /* BOTÃO DE X */
 
@@ -530,21 +575,6 @@ body.modal-open header {
     transform: scale(1.1);
 }
 
-.dropdown-toggle {
-    background-color: transparent;
-    border: none;
-    padding: 0 !important;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 243px;
-}
-
-.dropdown-toggle:hover {
-    background-color: transparent;
-    border: none;
-}
-
 .btn:active, .btn.show {
     background-color: transparent !important;
     border: none !important;
@@ -576,6 +606,27 @@ body.modal-open header {
         background-position: center 30%;
         background-repeat: no-repeat;
     }
+
+    .info_area {
+        flex-direction: column;
+        max-height: none;
+    }
+
+    .info_cols {
+        justify-content: center;
+        max-width: none;
+    }
+
+}
+
+@media (max-width: 744px) {
+    .custom-modal {
+        width: 709px;
+        height: 655px;
+        padding: 1rem;
+        gap: 1rem;
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 480px) {
@@ -605,8 +656,13 @@ body.modal-open header {
         flex: 1 1 100%;
         gap: 10px;
     }
-}
 
+    .info_cols {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+}
 
 @media (max-width: 425px) {
 
@@ -617,5 +673,16 @@ body.modal-open header {
 
     .expediente_info {
         max-height: none;
+    }
+}
+
+@media (max-width: 375px) {
+    .custom-modal {
+        width: 345px;
+        height: 792px;
+        padding: 0.875rem;
+        gap: 0.875rem;
+        margin: 0 auto;
+        border-radius: 0.5rem;
     }
 }
